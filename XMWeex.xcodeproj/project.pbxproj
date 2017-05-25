@@ -1,0 +1,559 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		180BD9581ECD9E1B00E77E41 /* view.js in Resources */ = {isa = PBXBuildFile; fileRef = 180BD9571ECD9E1B00E77E41 /* view.js */; };
+		1822AB6C1ECEEE94001F5B1D /* item.js in Resources */ = {isa = PBXBuildFile; fileRef = 1822AB6B1ECEEE94001F5B1D /* item.js */; };
+		1822AB6F1ECFF94A001F5B1D /* XMWXHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */; };
+		1822AB721ECFFA61001F5B1D /* XMWXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */; };
+		1886C2E51ECC501100146283 /* XMWXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2E11ECC501100146283 /* XMWXModule.m */; };
+		1886C2E61ECC501100146283 /* XMWXWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2E41ECC501100146283 /* XMWXWebImage.m */; };
+		1886C2F01ECC51FE00146283 /* XMWXAPPFrameComponte.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2EF1ECC51FE00146283 /* XMWXAPPFrameComponte.m */; };
+		1886C2F41ECD691B00146283 /* XMWXNavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2F31ECD691B00146283 /* XMWXNavigationItem.m */; };
+		1886C2F71ECD696000146283 /* XMWXBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2F61ECD696000146283 /* XMWXBarButtonItem.m */; };
+		1886C2FA1ECD754600146283 /* XMWXTabbarItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2F91ECD754600146283 /* XMWXTabbarItem.m */; };
+		188ADD921E76434C00BB2E43 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 188ADD911E76434C00BB2E43 /* main.m */; };
+		188ADD951E76434C00BB2E43 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 188ADD941E76434C00BB2E43 /* AppDelegate.m */; };
+		188ADD981E76434C00BB2E43 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188ADD971E76434C00BB2E43 /* ViewController.m */; };
+		188ADD9B1E76434C00BB2E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188ADD991E76434C00BB2E43 /* Main.storyboard */; };
+		188ADD9D1E76434C00BB2E43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 188ADD9C1E76434C00BB2E43 /* Assets.xcassets */; };
+		188ADDA01E76434C00BB2E43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 188ADD9E1E76434C00BB2E43 /* LaunchScreen.storyboard */; };
+		188ADDAB1E76446D00BB2E43 /* XMWXViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 188ADDAA1E76446D00BB2E43 /* XMWXViewController.m */; };
+		188ADDB61E768AD200BB2E43 /* File.js in Resources */ = {isa = PBXBuildFile; fileRef = 188ADDB51E768AD200BB2E43 /* File.js */; };
+		18BD0ED01ED3E48800A05E22 /* XMWeex.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 18BD0ECF1ED3E48800A05E22 /* XMWeex.bundle */; };
+		9610B4FFB206827A7B2527D3 /* libPods-XMWeex.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D0DBB404ADB4A6C956E3A4D /* libPods-XMWeex.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		180BD9571ECD9E1B00E77E41 /* view.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = view.js; sourceTree = "<group>"; };
+		1822AB6B1ECEEE94001F5B1D /* item.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = item.js; sourceTree = "<group>"; };
+		1822AB6D1ECFF94A001F5B1D /* XMWXHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXHelper.h; sourceTree = "<group>"; };
+		1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXHelper.m; sourceTree = "<group>"; };
+		1822AB701ECFFA61001F5B1D /* XMWXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXScanViewController.h; sourceTree = "<group>"; };
+		1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXScanViewController.m; sourceTree = "<group>"; };
+		1886C2E01ECC501100146283 /* XMWXModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXModule.h; sourceTree = "<group>"; };
+		1886C2E11ECC501100146283 /* XMWXModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXModule.m; sourceTree = "<group>"; };
+		1886C2E31ECC501100146283 /* XMWXWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXWebImage.h; sourceTree = "<group>"; };
+		1886C2E41ECC501100146283 /* XMWXWebImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXWebImage.m; sourceTree = "<group>"; };
+		1886C2EE1ECC51FE00146283 /* XMWXAPPFrameComponte.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXAPPFrameComponte.h; sourceTree = "<group>"; };
+		1886C2EF1ECC51FE00146283 /* XMWXAPPFrameComponte.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXAPPFrameComponte.m; sourceTree = "<group>"; };
+		1886C2F21ECD691B00146283 /* XMWXNavigationItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXNavigationItem.h; sourceTree = "<group>"; };
+		1886C2F31ECD691B00146283 /* XMWXNavigationItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXNavigationItem.m; sourceTree = "<group>"; };
+		1886C2F51ECD696000146283 /* XMWXBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXBarButtonItem.h; sourceTree = "<group>"; };
+		1886C2F61ECD696000146283 /* XMWXBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXBarButtonItem.m; sourceTree = "<group>"; };
+		1886C2F81ECD754600146283 /* XMWXTabbarItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXTabbarItem.h; sourceTree = "<group>"; };
+		1886C2F91ECD754600146283 /* XMWXTabbarItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXTabbarItem.m; sourceTree = "<group>"; };
+		1886C2FB1ECD7A8700146283 /* XMWXHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXHeader.h; sourceTree = "<group>"; };
+		188ADD8D1E76434C00BB2E43 /* XMWeex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XMWeex.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		188ADD911E76434C00BB2E43 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		188ADD931E76434C00BB2E43 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		188ADD941E76434C00BB2E43 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		188ADD961E76434C00BB2E43 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		188ADD971E76434C00BB2E43 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		188ADD9A1E76434C00BB2E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		188ADD9C1E76434C00BB2E43 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		188ADD9F1E76434C00BB2E43 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		188ADDA11E76434C00BB2E43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		188ADDA91E76446D00BB2E43 /* XMWXViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXViewController.h; sourceTree = "<group>"; };
+		188ADDAA1E76446D00BB2E43 /* XMWXViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXViewController.m; sourceTree = "<group>"; };
+		188ADDB11E76460900BB2E43 /* XMWXProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXProtocol.h; sourceTree = "<group>"; };
+		188ADDB51E768AD200BB2E43 /* File.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = File.js; path = XMWeex/ViewControllers/File.js; sourceTree = "<group>"; };
+		18BD0ECF1ED3E48800A05E22 /* XMWeex.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = XMWeex.bundle; sourceTree = "<group>"; };
+		6D0DBB404ADB4A6C956E3A4D /* libPods-XMWeex.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMWeex.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF64E47782F4A38763486EBB /* Pods-XMWeex.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMWeex.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMWeex/Pods-XMWeex.debug.xcconfig"; sourceTree = "<group>"; };
+		CE72ED90EBEEE730AF7E98A6 /* Pods-XMWeex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMWeex.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMWeex/Pods-XMWeex.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		188ADD8A1E76434C00BB2E43 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9610B4FFB206827A7B2527D3 /* libPods-XMWeex.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		079DCB7A53085C5DADC777FC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AF64E47782F4A38763486EBB /* Pods-XMWeex.debug.xcconfig */,
+				CE72ED90EBEEE730AF7E98A6 /* Pods-XMWeex.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1886C2DF1ECC501100146283 /* BasicModule */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2E01ECC501100146283 /* XMWXModule.h */,
+				1886C2E11ECC501100146283 /* XMWXModule.m */,
+			);
+			path = BasicModule;
+			sourceTree = "<group>";
+		};
+		1886C2E21ECC501100146283 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2E31ECC501100146283 /* XMWXWebImage.h */,
+				1886C2E41ECC501100146283 /* XMWXWebImage.m */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		1886C2E71ECC509500146283 /* WeexComponent */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2E81ECC50B100146283 /* APPFrame */,
+			);
+			path = WeexComponent;
+			sourceTree = "<group>";
+		};
+		1886C2E81ECC50B100146283 /* APPFrame */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2F11ECD690D00146283 /* Models */,
+				1886C2EC1ECC51FE00146283 /* Normal */,
+				1886C2ED1ECC51FE00146283 /* Basic */,
+			);
+			path = APPFrame;
+			sourceTree = "<group>";
+		};
+		1886C2EC1ECC51FE00146283 /* Normal */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Normal;
+			sourceTree = "<group>";
+		};
+		1886C2ED1ECC51FE00146283 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2EE1ECC51FE00146283 /* XMWXAPPFrameComponte.h */,
+				1886C2EF1ECC51FE00146283 /* XMWXAPPFrameComponte.m */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		1886C2F11ECD690D00146283 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2F21ECD691B00146283 /* XMWXNavigationItem.h */,
+				1886C2F31ECD691B00146283 /* XMWXNavigationItem.m */,
+				1886C2F51ECD696000146283 /* XMWXBarButtonItem.h */,
+				1886C2F61ECD696000146283 /* XMWXBarButtonItem.m */,
+				1886C2F81ECD754600146283 /* XMWXTabbarItem.h */,
+				1886C2F91ECD754600146283 /* XMWXTabbarItem.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		188ADD841E76434C00BB2E43 = {
+			isa = PBXGroup;
+			children = (
+				188ADD8F1E76434C00BB2E43 /* XMWeex */,
+				188ADD8E1E76434C00BB2E43 /* Products */,
+				079DCB7A53085C5DADC777FC /* Pods */,
+				D2B759680E3B5AC6740B7BCE /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		188ADD8E1E76434C00BB2E43 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				188ADD8D1E76434C00BB2E43 /* XMWeex.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		188ADD8F1E76434C00BB2E43 /* XMWeex */ = {
+			isa = PBXGroup;
+			children = (
+				188ADDA71E76442500BB2E43 /* XMWeex */,
+				188ADD931E76434C00BB2E43 /* AppDelegate.h */,
+				188ADD941E76434C00BB2E43 /* AppDelegate.m */,
+				188ADDB51E768AD200BB2E43 /* File.js */,
+				180BD9571ECD9E1B00E77E41 /* view.js */,
+				1822AB6B1ECEEE94001F5B1D /* item.js */,
+				188ADD961E76434C00BB2E43 /* ViewController.h */,
+				188ADD971E76434C00BB2E43 /* ViewController.m */,
+				188ADD991E76434C00BB2E43 /* Main.storyboard */,
+				188ADD9C1E76434C00BB2E43 /* Assets.xcassets */,
+				188ADD9E1E76434C00BB2E43 /* LaunchScreen.storyboard */,
+				188ADDA11E76434C00BB2E43 /* Info.plist */,
+				188ADD901E76434C00BB2E43 /* Supporting Files */,
+			);
+			path = XMWeex;
+			sourceTree = "<group>";
+		};
+		188ADD901E76434C00BB2E43 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				188ADD911E76434C00BB2E43 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		188ADDA71E76442500BB2E43 /* XMWeex */ = {
+			isa = PBXGroup;
+			children = (
+				18BD0ECF1ED3E48800A05E22 /* XMWeex.bundle */,
+				188ADDB01E7645F400BB2E43 /* XMWXPro */,
+				1886C2E71ECC509500146283 /* WeexComponent */,
+				188ADDAC1E76448000BB2E43 /* WeexModule */,
+				188ADDA81E76445A00BB2E43 /* ViewControllers */,
+			);
+			path = XMWeex;
+			sourceTree = "<group>";
+		};
+		188ADDA81E76445A00BB2E43 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				188ADDA91E76446D00BB2E43 /* XMWXViewController.h */,
+				188ADDAA1E76446D00BB2E43 /* XMWXViewController.m */,
+				1822AB701ECFFA61001F5B1D /* XMWXScanViewController.h */,
+				1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		188ADDAC1E76448000BB2E43 /* WeexModule */ = {
+			isa = PBXGroup;
+			children = (
+				1886C2DF1ECC501100146283 /* BasicModule */,
+				1886C2E21ECC501100146283 /* ImageDownloader */,
+			);
+			path = WeexModule;
+			sourceTree = "<group>";
+		};
+		188ADDB01E7645F400BB2E43 /* XMWXPro */ = {
+			isa = PBXGroup;
+			children = (
+				188ADDB11E76460900BB2E43 /* XMWXProtocol.h */,
+				1886C2FB1ECD7A8700146283 /* XMWXHeader.h */,
+				1822AB6D1ECFF94A001F5B1D /* XMWXHelper.h */,
+				1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */,
+			);
+			path = XMWXPro;
+			sourceTree = "<group>";
+		};
+		D2B759680E3B5AC6740B7BCE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D0DBB404ADB4A6C956E3A4D /* libPods-XMWeex.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		188ADD8C1E76434C00BB2E43 /* XMWeex */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 188ADDA41E76434C00BB2E43 /* Build configuration list for PBXNativeTarget "XMWeex" */;
+			buildPhases = (
+				7AAF36CEA3711CD5BB2E0F9A /* [CP] Check Pods Manifest.lock */,
+				188ADD891E76434C00BB2E43 /* Sources */,
+				188ADD8A1E76434C00BB2E43 /* Frameworks */,
+				188ADD8B1E76434C00BB2E43 /* Resources */,
+				3C10402F69757A99CA4A5218 /* [CP] Embed Pods Frameworks */,
+				BBEF414711958F2B201832F3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XMWeex;
+			productName = XMWeex;
+			productReference = 188ADD8D1E76434C00BB2E43 /* XMWeex.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		188ADD851E76434C00BB2E43 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "龙源数字传媒";
+				TargetAttributes = {
+					188ADD8C1E76434C00BB2E43 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = RF6TJ3YJAV;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 188ADD881E76434C00BB2E43 /* Build configuration list for PBXProject "XMWeex" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 188ADD841E76434C00BB2E43;
+			productRefGroup = 188ADD8E1E76434C00BB2E43 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				188ADD8C1E76434C00BB2E43 /* XMWeex */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		188ADD8B1E76434C00BB2E43 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				188ADDB61E768AD200BB2E43 /* File.js in Resources */,
+				188ADDA01E76434C00BB2E43 /* LaunchScreen.storyboard in Resources */,
+				1822AB6C1ECEEE94001F5B1D /* item.js in Resources */,
+				188ADD9D1E76434C00BB2E43 /* Assets.xcassets in Resources */,
+				18BD0ED01ED3E48800A05E22 /* XMWeex.bundle in Resources */,
+				188ADD9B1E76434C00BB2E43 /* Main.storyboard in Resources */,
+				180BD9581ECD9E1B00E77E41 /* view.js in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3C10402F69757A99CA4A5218 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMWeex/Pods-XMWeex-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7AAF36CEA3711CD5BB2E0F9A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BBEF414711958F2B201832F3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMWeex/Pods-XMWeex-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		188ADD891E76434C00BB2E43 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1886C2FA1ECD754600146283 /* XMWXTabbarItem.m in Sources */,
+				1886C2F01ECC51FE00146283 /* XMWXAPPFrameComponte.m in Sources */,
+				188ADD981E76434C00BB2E43 /* ViewController.m in Sources */,
+				1822AB721ECFFA61001F5B1D /* XMWXScanViewController.m in Sources */,
+				1886C2F71ECD696000146283 /* XMWXBarButtonItem.m in Sources */,
+				1886C2F41ECD691B00146283 /* XMWXNavigationItem.m in Sources */,
+				188ADD951E76434C00BB2E43 /* AppDelegate.m in Sources */,
+				188ADDAB1E76446D00BB2E43 /* XMWXViewController.m in Sources */,
+				1886C2E51ECC501100146283 /* XMWXModule.m in Sources */,
+				1886C2E61ECC501100146283 /* XMWXWebImage.m in Sources */,
+				188ADD921E76434C00BB2E43 /* main.m in Sources */,
+				1822AB6F1ECFF94A001F5B1D /* XMWXHelper.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		188ADD991E76434C00BB2E43 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188ADD9A1E76434C00BB2E43 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		188ADD9E1E76434C00BB2E43 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				188ADD9F1E76434C00BB2E43 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		188ADDA21E76434C00BB2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		188ADDA31E76434C00BB2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		188ADDA51E76434C00BB2E43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AF64E47782F4A38763486EBB /* Pods-XMWeex.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RF6TJ3YJAV;
+				INFOPLIST_FILE = XMWeex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Long-Yuan.XMWeex";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		188ADDA61E76434C00BB2E43 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE72ED90EBEEE730AF7E98A6 /* Pods-XMWeex.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = RF6TJ3YJAV;
+				INFOPLIST_FILE = XMWeex/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Long-Yuan.XMWeex";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		188ADD881E76434C00BB2E43 /* Build configuration list for PBXProject "XMWeex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188ADDA21E76434C00BB2E43 /* Debug */,
+				188ADDA31E76434C00BB2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		188ADDA41E76434C00BB2E43 /* Build configuration list for PBXNativeTarget "XMWeex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				188ADDA51E76434C00BB2E43 /* Debug */,
+				188ADDA61E76434C00BB2E43 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 188ADD851E76434C00BB2E43 /* Project object */;
+}

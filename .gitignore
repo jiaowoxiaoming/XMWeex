@@ -1,0 +1,7 @@
+XMWeex.xcodeproj/xcuserdata/
+XMWeex.xcworkspace/
+Pods/
+*.swp
+Podfile.lock
+.DS_Store
+XMWeex.xcodeproj/project.xcworkspace/xcuserdata/
