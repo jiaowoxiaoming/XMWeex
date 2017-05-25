@@ -10,6 +10,10 @@
 #import <SDWebImage/SDWebImageManager.h>
 #import "XMWXHeader.h"
 @implementation XMWXWebImage
+-(void)cancel
+{
+    
+}
 -(id<WXImageOperationProtocol>)downloadImageWithURL:(NSString *)url imageFrame:(CGRect)imageFrame userInfo:(NSDictionary *)options completed:(void (^)(UIImage *, NSError *, BOOL))completedBlock
 {
     //依据条件做事情

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <WeexSDK/WeexSDK.h>
-@interface XMWXWebImage : NSObject <WXImgLoaderProtocol>
+@interface XMWXWebImage : NSObject <WXImgLoaderProtocol,WXImageOperationProtocol>
 
 
 
