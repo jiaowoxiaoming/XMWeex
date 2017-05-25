@@ -8,7 +8,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 target 'XMWeex' do
   # Uncomment this line if you're using Swift or would like to use dynamic frameworks
 #   use_frameworks!
-    pod 'WeexSDK'
+#    pod 'WeexSDK'
+    pod 'WeexSDK', :path => '/Users/apple/Desktop/incubator-weex'
     pod 'SDWebImage','3.8.0'
     pod 'FDFullscreenPopGesture'
 end
