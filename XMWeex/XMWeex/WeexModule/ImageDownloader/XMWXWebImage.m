@@ -67,7 +67,6 @@
         if (completedBlock) {
             completedBlock(image, error, finished);
         }
-
     }];
 }
 @end

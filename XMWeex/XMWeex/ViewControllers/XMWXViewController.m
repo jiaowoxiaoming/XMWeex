@@ -365,12 +365,12 @@
 -(void)setRenderInfo:(id<XMWXNavigationBarProtocol>)renderInfo
 {
     _renderInfo = renderInfo;
-    
+    typeof(self) __weak weakSelf = self;
     if ([renderInfo.title containsString:@"http"]) {
         WXSDKInstance * titleInstance = [[WXSDKInstance alloc] init];
         [titleInstance renderWithURL:[self URLWithString:[NSURL URLWithString:renderInfo.title].absoluteString]];
         titleInstance.renderFinish = ^(UIView * view){
-            self.navigationItem.titleView = view;
+            weakSelf.navigationItem.titleView = view;
         };
         titleInstance.frame = CGRectMake(0, 0, 100, 30);
     }else
@@ -385,11 +385,11 @@
     }
     
     [renderInfo.leftItemsInfo enumerateObjectsUsingBlock:^(id <XMWXBarButtonItemProtocol> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self creatABarButtonItemWithWXItem:obj isRight:NO];
+        [weakSelf creatABarButtonItemWithWXItem:obj isRight:NO];
     }];
     
     [renderInfo.rightItemsInfo enumerateObjectsUsingBlock:^(id <XMWXBarButtonItemProtocol> _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [self creatABarButtonItemWithWXItem:obj isRight:YES];
+        [weakSelf creatABarButtonItemWithWXItem:obj isRight:YES];
     }];
     
 }
@@ -439,11 +439,12 @@
 }
 -(void)handleNavigationBarBackgroundImage
 {
+    typeof(self) __weak weakSelf = self;
     if ([_renderInfo.navgationBarBackgroundImage hasPrefix:@"http"]) {
         [[SDWebImageManager sharedManager] downloadImageWithURL:[NSURL URLWithString:_renderInfo.navgationBarBackgroundImage] options:SDWebImageProgressiveDownload progress:^(NSInteger receivedSize, NSInteger expectedSize) {
             
         } completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, BOOL finished, NSURL * _Nullable imageURL) {
-            [self.navigationController.navigationBar setBackgroundImage:image forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
+            [weakSelf.navigationController.navigationBar setBackgroundImage:image forBarPosition:UIBarPositionAny barMetrics:UIBarMetricsDefault];
             
         }];
     }else
@@ -454,6 +455,7 @@
 }
 -(void)creatABarButtonItemWithWXItem:(id <XMWXBarButtonItemProtocol>)WXItem isRight:(BOOL)isRight
 {
+    typeof(self) __weak weakSelf = self;
     if (WXItem.itemURL.length > 0) {
         WXSDKInstance * instance = [[WXSDKInstance alloc] init];
         if ([WXItem.itemURL hasPrefix:@"http"]) {
@@ -467,7 +469,7 @@
         instance.renderFinish = ^(UIView * view){
             
             NSMutableArray * tmpItems = nil;
-            NSArray * items = isRight ? self.navigationItem.rightBarButtonItems : self.navigationItem.leftBarButtonItems;
+            NSArray * items = isRight ? weakSelf.navigationItem.rightBarButtonItems : weakSelf.navigationItem.leftBarButtonItems;
             
             if (items.count > 0) {
                 tmpItems = items.mutableCopy;
@@ -477,11 +479,11 @@
             }
             UIBarButtonItem * item = [[UIBarButtonItem alloc] initWithCustomView:view];
             
-            [item setTarget:self];
+            [item setTarget:weakSelf];
             [item setAction:@selector(actionForBarButtonItem:)];
             objc_setAssociatedObject(item, &wxAtionKey, WXItem.wxAction, OBJC_ASSOCIATION_COPY_NONATOMIC);
             [tmpItems addObject:item];
-            isRight ? [self.navigationItem setRightBarButtonItems:tmpItems animated:YES] : [self.navigationItem setLeftBarButtonItems:tmpItems animated:YES];
+            isRight ? [weakSelf.navigationItem setRightBarButtonItems:tmpItems animated:YES] : [weakSelf.navigationItem setLeftBarButtonItems:tmpItems animated:YES];
         };
         instance.frame = CGRectFromString(WXItem.frame);
     }
