@@ -100,7 +100,10 @@
         window.rootViewController = tabarViewController;
         
         window.backgroundColor = [UIColor whiteColor];
-        
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDEBUGUI)];
+        tap.numberOfTapsRequired = 2;
+        tap.numberOfTouchesRequired = 3;
+        [tabarViewController.view addGestureRecognizer:tap];
         [window makeKeyAndVisible];
         
         [self handleTabbarViewControllers:attributes tabarController:tabarViewController];
@@ -108,7 +111,15 @@
 
     
 }
-
+-(void)showDEBUGUI
+{
+#ifdef DEBUG
+    Class overlayClass = NSClassFromString(@"UIDebuggingInformationOverlay");
+    [overlayClass performSelector:NSSelectorFromString(@"prepareDebuggingOverlay")];
+    id overlayObject = [overlayClass performSelector:NSSelectorFromString(@"overlay")];
+    [overlayObject performSelector:NSSelectorFromString(@"toggleVisibility")];
+#endif
+}
 
 
 /**

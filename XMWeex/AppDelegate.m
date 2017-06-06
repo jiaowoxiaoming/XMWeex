@@ -31,6 +31,7 @@
 
     window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
+
     [WXAppConfiguration setAppGroup:@"application"];
     [WXAppConfiguration setAppName:@"application"];
     [WXAppConfiguration setAppVersion:@"1.0"];

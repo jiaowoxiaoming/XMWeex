@@ -15,6 +15,7 @@
 @synthesize weexInstance = _weexInstance;
 
 WX_EXPORT_METHOD(@selector(openURL:options:completionHandler:))
+
 -(void)openURL:(NSString *)url options:(NSDictionary<NSString *,id> *)options completionHandler:(WXCallback)completion
 {
     NSString *newURL = url;
