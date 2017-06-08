@@ -18,7 +18,7 @@ pod install
 #    pod 'WeexSDK', :path => '/Users/apple/Desktop/incubator-weex'
 ```
 这样就能编译通过Demo。
-![](//upload-images.jianshu.io/upload_images/762651-f3a0ede867f34b82.jpg)
+![](http://upload-images.jianshu.io/upload_images/762651-f3a0ede867f34b82.jpg)
 ######单页面调试&&AppFrame调试
 顾名思义 进行单个页面的调试 类似于Weex的DevTool。
 可以通过加载```AppFrame.js```来调试整个app
@@ -108,5 +108,5 @@ npm run serve
 如用[草料](http://cli.im/)
 将```http://yourip:8084/dist/Components/Frame/AppFrame.js```生成二维码，用[iOS调试Demo](https://github.com/jiaowoxiaoming/XMWeex)扫描该二维码就可以看到应用界面。
 扫描结果如图
-![单页面调试](//upload-images.jianshu.io/upload_images/762651-f50a953251d4eba4.jpg)
-![AppFrame调试](//upload-images.jianshu.io/upload_images/762651-cd69da8379cb0256.jpg)
+![单页面调试](http://upload-images.jianshu.io/upload_images/762651-f50a953251d4eba4.jpg)
+![AppFrame调试](http://upload-images.jianshu.io/upload_images/762651-cd69da8379cb0256.jpg)
