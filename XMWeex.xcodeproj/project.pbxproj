@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		180BD9581ECD9E1B00E77E41 /* view.js in Resources */ = {isa = PBXBuildFile; fileRef = 180BD9571ECD9E1B00E77E41 /* view.js */; };
+		182064F31EE8FDC20025E202 /* XMWXHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 182064F11EE8FDC20025E202 /* XMWXHomePageViewController.m */; };
 		1822AB6C1ECEEE94001F5B1D /* item.js in Resources */ = {isa = PBXBuildFile; fileRef = 1822AB6B1ECEEE94001F5B1D /* item.js */; };
 		1822AB6F1ECFF94A001F5B1D /* XMWXHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */; };
 		1822AB721ECFFA61001F5B1D /* XMWXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */; };
@@ -31,6 +32,8 @@
 
 /* Begin PBXFileReference section */
 		180BD9571ECD9E1B00E77E41 /* view.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = view.js; sourceTree = "<group>"; };
+		182064F01EE8FDC20025E202 /* XMWXHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXHomePageViewController.h; sourceTree = "<group>"; };
+		182064F11EE8FDC20025E202 /* XMWXHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXHomePageViewController.m; sourceTree = "<group>"; };
 		1822AB6B1ECEEE94001F5B1D /* item.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = item.js; sourceTree = "<group>"; };
 		1822AB6D1ECFF94A001F5B1D /* XMWXHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXHelper.h; sourceTree = "<group>"; };
 		1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXHelper.m; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 				1822AB6B1ECEEE94001F5B1D /* item.js */,
 				188ADD961E76434C00BB2E43 /* ViewController.h */,
 				188ADD971E76434C00BB2E43 /* ViewController.m */,
+				182064F01EE8FDC20025E202 /* XMWXHomePageViewController.h */,
+				182064F11EE8FDC20025E202 /* XMWXHomePageViewController.m */,
 				188ADD991E76434C00BB2E43 /* Main.storyboard */,
 				188ADD9C1E76434C00BB2E43 /* Assets.xcassets */,
 				188ADD9E1E76434C00BB2E43 /* LaunchScreen.storyboard */,
@@ -380,6 +385,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1886C2FA1ECD754600146283 /* XMWXTabbarItem.m in Sources */,
+				182064F31EE8FDC20025E202 /* XMWXHomePageViewController.m in Sources */,
 				1886C2F01ECC51FE00146283 /* XMWXAPPFrameComponte.m in Sources */,
 				188ADD981E76434C00BB2E43 /* ViewController.m in Sources */,
 				1822AB721ECFFA61001F5B1D /* XMWXScanViewController.m in Sources */,

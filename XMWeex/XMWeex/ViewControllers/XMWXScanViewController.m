@@ -14,6 +14,7 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AssetsLibrary/AssetsLibrary.h>
+#import "XMWXViewController.h"
 @interface BaseTapSound(){
     SystemSoundID soundID;
     SystemSoundID systemSoundID;
@@ -291,7 +292,6 @@ static BaseTapSound *baseSound;
         stringValue = metadataObject. stringValue ;
         
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"QRCodeResult" message:stringValue delegate:self cancelButtonTitle:@"Cancle" otherButtonTitles:@"OK", nil];
-        
         NSString * host = [[NSURL URLWithString:stringValue] host];
         NSNumber * port = [[NSURL URLWithString:stringValue] port];
         NSString * real = [NSString stringWithFormat:@"http://%@:%@/",host,port];
@@ -305,12 +305,51 @@ static BaseTapSound *baseSound;
 }
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if (buttonIndex == 1) {
-        WXSDKInstance * instance = [(UIResponder *)[UIApplication sharedApplication].delegate valueForKey:@"instance"];
-        [instance destroyInstance];
-        [(UIResponder *)[UIApplication sharedApplication].delegate setValue:nil forKey:@"instance"];
+        NSString * url = objc_getAssociatedObject(alertView, &"QRCodeString");
+        switch (self.debugType) {
+            case XMWXDEBUGTypeIsAppFrame:
+            {
+                WXSDKInstance * instance = [(UIResponder *)[UIApplication sharedApplication].delegate valueForKey:@"instance"];
+                [instance destroyInstance];
+                [(UIResponder *)[UIApplication sharedApplication].delegate setValue:nil forKey:@"instance"];
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wundeclared-selector"
-        [(UIResponder *)[UIApplication sharedApplication].delegate performSelector:@selector(instance:) withObject:objc_getAssociatedObject(alertView, &"QRCodeString")];
+                [(UIResponder *)[UIApplication sharedApplication].delegate performSelector:@selector(instance:) withObject:url];
+            }
+                break;
+            case XMWXDEBUGTypeIsSingelPage:
+            {
+                XMWXViewController * viewController = [[XMWXViewController alloc] init];
+                XMWXViewController * __weak weakViewController = viewController;
+                viewController.instance.onCreate = ^(UIView * view)
+                {
+                    XMWXViewController * __strong vc = weakViewController;
+                    [vc.view addSubview:view];
+                };
+                viewController.instance.frame = viewController.view.bounds;
+                viewController.instance.onLayoutChange = ^(UIView *view)
+                {
+                    XMWXViewController * __strong vc = weakViewController;
+                    vc.instance.frame = vc.view.bounds;
+                };
+                
+                if ([url hasPrefix:@"http"]) {
+                    viewController.renderURL = [NSURL URLWithString:url];
+                }else
+                {
+                    NSString * path = [[NSBundle mainBundle] pathForResource:url ofType:@""];
+                    if (path) {
+                        viewController.renderURL = [NSURL fileURLWithPath:path];
+                    }
+                }
+                [self showViewController:viewController sender:nil];
+            }
+                break;
+                
+            default:
+                break;
+        }
+
     }else
     {
         [self startingQRCode];
@@ -332,7 +371,7 @@ static BaseTapSound *baseSound;
 - (void)canUseSystemCamera{
     if (![BaseTapSound ifCanUseSystemCamera]) {
         _lineLabel.hidden = YES;
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"此应用已被禁用系统相机" message:@"请在iPhone的 \"设置->隐私->相机\" 选项中,允许 \"飞熊视频\" 访问你的相机" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"此应用已被禁用系统相机" message:@"请在iPhone的 \"设置->隐私->相机\" 选项中,允许 \"应用\" 访问你的相机" delegate:self cancelButtonTitle:nil otherButtonTitles:@"确认", nil];
         alert.tag = 100;
         [alert show];
     }else{

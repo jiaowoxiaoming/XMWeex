@@ -26,8 +26,6 @@
     UIWindow * window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window = window;
     window.rootViewController = tabarViewController;
-    
-    
 
     window.backgroundColor = [UIColor whiteColor];
     [window makeKeyAndVisible];
@@ -42,16 +40,9 @@
     [WXSDKEngine registerHandler:[XMWXWebImage new] withProtocol:@protocol(WXImgLoaderProtocol)];
     //通过配置这个Component参数来配置程序框架HTML标签名
     [WXSDKEngine registerComponent:@"AppFrame" withClass:NSClassFromString(@"XMWXAPPFrameComponte")];
+    tabarViewController.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"XMWXHomePageViewController"]]];
+
     
-#if TARGET_IPHONE_SIMULATOR//模拟器
-    NSString * renderURL = @"http://192.167.0.3:8083/dist/components/Frame/AppFrame.js";
-    //    NSString * renderURL = [NSString stringWithFormat:@"%@%@",host,@"AppFrame.weex.js"];
-    [self instance:renderURL];
-    
-#elif TARGET_OS_IPHONE//真机
-    XMWXScanViewController * scanVC = [[XMWXScanViewController alloc] init];
-    tabarViewController.viewControllers = @[scanVC];
-#endif
     
     [WXLog setLogLevel:WXLogLevelError];
 

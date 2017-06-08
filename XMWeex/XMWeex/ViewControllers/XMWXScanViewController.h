@@ -11,10 +11,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XMWXScanViewController : UIViewController
+typedef enum : NSUInteger {
+    XMWXDEBUGTypeIsSingelPage,
+    XMWXDEBUGTypeIsAppFrame,
+    
+} XMWXDEBUGType;
 
+@interface XMWXScanViewController : UIViewController
+@property (nonatomic,assign) XMWXDEBUGType debugType;
 @end
 #import <Foundation/Foundation.h>
+
 
 
 /**
