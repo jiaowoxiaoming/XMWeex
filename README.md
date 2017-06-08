@@ -18,7 +18,7 @@ pod install
 #    pod 'WeexSDK', :path => '/Users/apple/Desktop/incubator-weex'
 ```
 这样就能编译通过Demo。
-![](http://upload-images.jianshu.io/upload_images/762651-f3a0ede867f34b82.jpg)
+![Demo图](http://upload-images.jianshu.io/upload_images/762651-f3a0ede867f34b82.jpg)
 ######单页面调试&&AppFrame调试
 顾名思义 进行单个页面的调试 类似于Weex的DevTool。
 可以通过加载```AppFrame.js```来调试整个app
