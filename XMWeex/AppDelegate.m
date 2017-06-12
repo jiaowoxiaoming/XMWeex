@@ -42,8 +42,6 @@
     [WXSDKEngine registerComponent:@"AppFrame" withClass:NSClassFromString(@"XMWXAPPFrameComponte")];
     tabarViewController.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:[[UIStoryboard storyboardWithName:@"Main" bundle:nil] instantiateViewControllerWithIdentifier:@"XMWXHomePageViewController"]]];
 
-    
-    
     [WXLog setLogLevel:WXLogLevelError];
 
     return YES;

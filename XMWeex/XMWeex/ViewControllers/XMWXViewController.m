@@ -66,17 +66,29 @@
 @end
 @interface UIView (LayoutSubView)
 @property (nonatomic,assign) BOOL shouldSetScrollViewContentInset;
+
+/**
+ 设置偏移量
+ */
+@property (nonatomic,assign) CGFloat scrollViewTopDel;
 @end
 @implementation UIView (LayoutSubView)
 -(void)setShouldSetScrollViewContentInset:(BOOL)shouldSetScrollViewContentInset
 {
-    objc_setAssociatedObject(self, &"", @(shouldSetScrollViewContentInset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    objc_setAssociatedObject(self, &"shouldSetScrollViewContentInset", @(shouldSetScrollViewContentInset), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 -(BOOL)shouldSetScrollViewContentInset
 {
-    return [objc_getAssociatedObject(self, &"") boolValue];
+    return [objc_getAssociatedObject(self, &"shouldSetScrollViewContentInset") boolValue];
 }
-
+-(CGFloat)scrollViewTopDel
+{
+    return [objc_getAssociatedObject(self, &"scrollViewTopDel") floatValue];
+}
+-(void)setScrollViewTopDel:(CGFloat)scrollViewTopDel
+{
+    objc_setAssociatedObject(self, &"scrollViewTopDel", @(scrollViewTopDel), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 -(void)layoutSubviews
 {
     if (self.shouldSetScrollViewContentInset) {
@@ -85,9 +97,9 @@
             
             if ([obj isKindOfClass:[UIScrollView class]]) {
                 scrollView = obj;
-                [scrollView setContentInset:UIEdgeInsetsMake(CGRectGetMaxY([NSObject visibleViewController].navigationController.navigationBar.frame), 0, 0, 0)];
+                [scrollView setContentInset:UIEdgeInsetsMake(CGRectGetMaxY([NSObject visibleViewController].navigationController.navigationBar.frame) + self.scrollViewTopDel ? : 0, 0, 0, 0)];
                 
-                [scrollView setContentOffset:CGPointMake(0, -CGRectGetMaxY([NSObject visibleViewController].navigationController.navigationBar.frame))];
+                [scrollView setContentOffset:CGPointMake(0, -(CGRectGetMaxY([NSObject visibleViewController].navigationController.navigationBar.frame) + self.scrollViewTopDel ? : 0))];
             }
         }];
     }
@@ -336,7 +348,8 @@
         strongSelf.weexView = view;
         [strongSelf.view addSubview:strongSelf.weexView];
         UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, strongSelf.weexView);
-        strongSelf.weexView.shouldSetScrollViewContentInset = ![self fd_prefersNavigationBarHidden] && !self.renderInfo.clearNavigationBar;
+        strongSelf.weexView.shouldSetScrollViewContentInset = ![weakSelf fd_prefersNavigationBarHidden] && !weakSelf.renderInfo.clearNavigationBar;
+        strongSelf.weexView.scrollViewTopDel = weakSelf.renderInfo.scrollViewTopDel.floatValue;
     };
     _instance.onFailed = ^(NSError *error) {
         

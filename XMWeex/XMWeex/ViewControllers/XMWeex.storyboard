@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Page View Controller-->
+        <scene sceneID="GTc-Jg-hRv">
+            <objects>
+                <viewController storyboardIdentifier="XMWXHomePageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fk2-1j-YIs" customClass="XMWXHomePageViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hHy-V4-3Va"/>
+                        <viewControllerLayoutGuide type="bottom" id="O9b-qQ-ROq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="mLP-N0-ZAm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U2T-15-eBw">
+                                <rect key="frame" x="129" y="292" width="118" height="84"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olk-rO-GaH">
+                                        <rect key="frame" x="8" y="8" width="102" height="30"/>
+                                        <state key="normal" title="单页面调试"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uBF-YW-NOF">
+                                        <rect key="frame" x="8" y="46" width="102" height="30"/>
+                                        <state key="normal" title="AppFrame调试"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="olk-rO-GaH" secondAttribute="trailing" constant="8" id="4uX-Cx-DSe"/>
+                                    <constraint firstItem="uBF-YW-NOF" firstAttribute="top" secondItem="olk-rO-GaH" secondAttribute="bottom" constant="8" id="Be6-vq-udQ"/>
+                                    <constraint firstItem="olk-rO-GaH" firstAttribute="top" secondItem="U2T-15-eBw" secondAttribute="top" constant="8" id="FD6-Zc-oMf"/>
+                                    <constraint firstItem="olk-rO-GaH" firstAttribute="leading" secondItem="U2T-15-eBw" secondAttribute="leading" constant="8" id="MXb-uk-d8d"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBF-YW-NOF" secondAttribute="trailing" constant="8" id="YiU-9G-uMq"/>
+                                    <constraint firstItem="uBF-YW-NOF" firstAttribute="leading" secondItem="U2T-15-eBw" secondAttribute="leading" constant="8" id="buT-nE-sqf"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBF-YW-NOF" secondAttribute="bottom" constant="8" id="w5G-KJ-45v"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="U2T-15-eBw" firstAttribute="centerY" secondItem="mLP-N0-ZAm" secondAttribute="centerY" id="eFw-z3-49n"/>
+                            <constraint firstItem="U2T-15-eBw" firstAttribute="centerX" secondItem="mLP-N0-ZAm" secondAttribute="centerX" id="upw-XA-Xmr"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SRc-U7-SQn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="172" y="-365"/>
+        </scene>
+    </scenes>
+</document>

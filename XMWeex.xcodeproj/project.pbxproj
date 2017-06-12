@@ -12,6 +12,7 @@
 		1822AB6C1ECEEE94001F5B1D /* item.js in Resources */ = {isa = PBXBuildFile; fileRef = 1822AB6B1ECEEE94001F5B1D /* item.js */; };
 		1822AB6F1ECFF94A001F5B1D /* XMWXHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */; };
 		1822AB721ECFFA61001F5B1D /* XMWXScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */; };
+		186799721EEE64E40080B281 /* XMWeex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 186799711EEE64E40080B281 /* XMWeex.storyboard */; };
 		1886C2E51ECC501100146283 /* XMWXModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2E11ECC501100146283 /* XMWXModule.m */; };
 		1886C2E61ECC501100146283 /* XMWXWebImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2E41ECC501100146283 /* XMWXWebImage.m */; };
 		1886C2F01ECC51FE00146283 /* XMWXAPPFrameComponte.m in Sources */ = {isa = PBXBuildFile; fileRef = 1886C2EF1ECC51FE00146283 /* XMWXAPPFrameComponte.m */; };
@@ -39,6 +40,7 @@
 		1822AB6E1ECFF94A001F5B1D /* XMWXHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXHelper.m; sourceTree = "<group>"; };
 		1822AB701ECFFA61001F5B1D /* XMWXScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXScanViewController.h; sourceTree = "<group>"; };
 		1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXScanViewController.m; sourceTree = "<group>"; };
+		186799711EEE64E40080B281 /* XMWeex.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = XMWeex.storyboard; sourceTree = "<group>"; };
 		1886C2E01ECC501100146283 /* XMWXModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXModule.h; sourceTree = "<group>"; };
 		1886C2E11ECC501100146283 /* XMWXModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMWXModule.m; sourceTree = "<group>"; };
 		1886C2E31ECC501100146283 /* XMWXWebImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMWXWebImage.h; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				188ADDAA1E76446D00BB2E43 /* XMWXViewController.m */,
 				1822AB701ECFFA61001F5B1D /* XMWXScanViewController.h */,
 				1822AB711ECFFA61001F5B1D /* XMWXScanViewController.m */,
+				186799711EEE64E40080B281 /* XMWeex.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				188ADD9D1E76434C00BB2E43 /* Assets.xcassets in Resources */,
 				18BD0ED01ED3E48800A05E22 /* XMWeex.bundle in Resources */,
 				188ADD9B1E76434C00BB2E43 /* Main.storyboard in Resources */,
+				186799721EEE64E40080B281 /* XMWeex.storyboard in Resources */,
 				180BD9581ECD9E1B00E77E41 /* view.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

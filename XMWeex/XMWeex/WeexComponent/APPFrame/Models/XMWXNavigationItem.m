@@ -16,7 +16,7 @@
 @end
 
 @implementation XMWXNavigationItem
-@synthesize title = _title,leftItemsInfo = _leftItemsInfo,rightItemsInfo = _rightItemsInfo,navigationBarBackgroundColor = _navigationBarBackgroundColor,navgationBarBackgroundImage = _navgationBarBackgroundImage,hiddenNavgitionBar = _hiddenNavgitionBar,clearNavigationBar = _clearNavigationBar,customTitleViewURL = _customTitleViewURL,blurTitleColor = _blurTitleColor,clearTitleColor = _clearTitleColor,rootViewURL = _rootViewURL;
+@synthesize title = _title,leftItemsInfo = _leftItemsInfo,rightItemsInfo = _rightItemsInfo,navigationBarBackgroundColor = _navigationBarBackgroundColor,navgationBarBackgroundImage = _navgationBarBackgroundImage,hiddenNavgitionBar = _hiddenNavgitionBar,clearNavigationBar = _clearNavigationBar,customTitleViewURL = _customTitleViewURL,blurTitleColor = _blurTitleColor,clearTitleColor = _clearTitleColor,rootViewURL = _rootViewURL,scrollViewTopDel = _scrollViewTopDel;
 
 +(instancetype)infoWithDict:(NSDictionary *)dict
 {
