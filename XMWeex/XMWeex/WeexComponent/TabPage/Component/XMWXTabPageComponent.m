@@ -21,6 +21,8 @@
 @property (nonatomic,strong) XMTabPageViewController * tabPageViewController;
 
 @property (nonatomic,strong) NSArray <XMTabPageBarItemModel *> * pageBarItems;
+
+@property (nonatomic,assign) NSInteger selectIndex;
 @end
 
 @implementation XMWXTabPageComponent
@@ -29,9 +31,9 @@
 -(instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance
 {
     if (self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance]) {
-        
+        self.selectIndex = 0;
         [self initTabPage:attributes];
-        
+
     }
     return self;
 }
@@ -47,7 +49,10 @@
 {
     NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
     self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
-    
+    if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
+        self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
+    }
+
 }
 /**
  操作pageViewController
@@ -100,7 +105,14 @@
          
      }];
     
-    self.tabPageViewController.pageChangedBlock(0);
+//
+    if (self.selectIndex == 0) {
+        self.tabPageViewController.pageChangedBlock(self.selectIndex);
+    }else
+    {
+        [self.tabPageViewController setSelectedIndexByIndex:self.selectIndex];
+    }
+
 }
 
 -(void)animatePageBarSelectedColor:(UIButton *)fromButton toButton:(UIButton *)toButton progress:(float)progress

@@ -338,13 +338,20 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
 
     UIButton *selectedButton = [self.items[_selectedIndex] button];
     selectedButton.selected = YES;
+    if (!selectedButton) {
+        [self drawRect:self.frame];
+        selectedButton = [self.items[_selectedIndex] button];
+    }
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         UIScrollView * scr = (UIScrollView *)self.superview;
         if (selectedButton.frame.origin.x < scr.contentSize.width - scr.frame.size.width) {
             [scr setContentOffset:selectedButton.frame.origin animated:YES];
         }else
         {
-            [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0)];
+            if (scr.contentSize.width > scr.frame.size.width) {
+                [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0)];
+            }
+
         }
         
     }
