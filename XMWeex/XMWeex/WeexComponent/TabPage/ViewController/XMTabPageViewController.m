@@ -337,6 +337,9 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
     _selectedIndex = selectedIndex;
 
     UIButton *selectedButton = [self.items[_selectedIndex] button];
+    if (!selectedButton) {
+        [self setNeedsDisplay];
+    }
     selectedButton.selected = YES;
     if ([self.superview isKindOfClass:[UIScrollView class]]) {
         UIScrollView * scr = (UIScrollView *)self.superview;

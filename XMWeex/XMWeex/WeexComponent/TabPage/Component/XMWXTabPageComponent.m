@@ -43,7 +43,7 @@
     
     [self handleTabPageViewController];
 
-
+    [self.tabPageViewController setSelectedIndexByIndex:self.selectIndex];
 }
 
 #pragma mark - private method
