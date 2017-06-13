@@ -344,7 +344,10 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
             [scr setContentOffset:selectedButton.frame.origin animated:YES];
         }else
         {
-            [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0)];
+            if (scr.contentSize.width > scr.frame.size.width) {
+                [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0)];
+            }
+            
         }
         
     }
@@ -610,6 +613,7 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
     if (self.tabPageBar.superview) {
         [self.view bringSubviewToFront:self.tabPageBar.superview];
         self.tabPageBar.superview.frame = CGRectMake(self.tabPageBar.frame.origin.x, CGRectGetMaxY(self.parentViewController.navigationController.navigationBar.frame), self.view.frame.size.width, self.tabPageBar.frame.size.height);
+//        self.tabPageBar.superview.bounds = CGRectMake(0, 0, self.tabPageBar.superview.frame.size.width, self.tabPageBar.superview.frame.size.height);
     }
 }
 

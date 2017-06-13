@@ -21,6 +21,8 @@
 @property (nonatomic,strong) XMTabPageViewController * tabPageViewController;
 
 @property (nonatomic,strong) NSArray <XMTabPageBarItemModel *> * pageBarItems;
+
+@property (nonatomic,assign) NSUInteger selectIndex;
 @end
 
 @implementation XMWXTabPageComponent
@@ -38,7 +40,10 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    
     [self handleTabPageViewController];
+
+
 }
 
 #pragma mark - private method
@@ -47,7 +52,7 @@
 {
     NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
     self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
-    
+    self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
 }
 /**
  操作pageViewController
@@ -100,7 +105,7 @@
          
      }];
     
-    self.tabPageViewController.pageChangedBlock(0);
+    self.tabPageViewController.pageChangedBlock(self.selectIndex);
 }
 
 -(void)animatePageBarSelectedColor:(UIButton *)fromButton toButton:(UIButton *)toButton progress:(float)progress
