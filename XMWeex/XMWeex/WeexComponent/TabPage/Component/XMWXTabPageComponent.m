@@ -40,17 +40,26 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self handleTabPageViewController];
+    
 }
-
+-(void)updateAttributes:(NSDictionary *)attributes
+{
+    [self initTabPage:attributes];
+}
 #pragma mark - private method
 
 -(void)initTabPage:(NSDictionary *)attributes
 {
-    NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-    self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
-    if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
-        self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
+    if ([[attributes objectForKey:@"pageItems"] length]) {
+        NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+        self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
+        if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
+            self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
+        }
+        [self.tabPageViewController.view removeFromSuperview];
+        [self.tabPageViewController removeFromParentViewController];
+        self.tabPageViewController = nil;
+        [self handleTabPageViewController];
     }
 
 }

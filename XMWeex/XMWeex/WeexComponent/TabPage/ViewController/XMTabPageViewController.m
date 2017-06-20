@@ -204,7 +204,7 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
         if ([item isKindOfClass:[XMTabPageViewControllerItem class]]) {
             XMTabPageViewControllerItem *vcItem = (XMTabPageViewControllerItem *) item;
             CGFloat titleWidth = XMtabpage_getTextSize(self.titleFont, vcItem.title, CGFLOAT_MAX).width + 16;
-            if (titleWidth > self.itemSize.width) {
+            if (titleWidth > CGRectGetWidth(self.bounds) / self.items.count) {
                 self.itemSize = CGSizeMake(titleWidth, self.itemSize.height);
             }
             button = vcItem.button;
@@ -342,19 +342,19 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
         [self drawRect:self.frame];
         selectedButton = [self.items[_selectedIndex] button];
     }
-    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-        UIScrollView * scr = (UIScrollView *)self.superview;
-        if (selectedButton.frame.origin.x < scr.contentSize.width - scr.frame.size.width) {
-            [scr setContentOffset:selectedButton.frame.origin animated:YES];
-        }else
-        {
-            if (scr.contentSize.width > scr.frame.size.width) {
-                [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0)];
-            }
-
-        }
-        
-    }
+//    if ([self.superview isKindOfClass:[UIScrollView class]]) {
+//        UIScrollView * scr = (UIScrollView *)self.superview;
+//        if (CGRectGetMaxX(selectedButton.frame) < scr.contentSize.width - scr.frame.size.width) {
+//            [scr setContentOffset:selectedButton.frame.origin animated:YES];
+//        }else
+//        {
+//            if (scr.contentSize.width > scr.frame.size.width) {
+//                [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0) animated:YES];
+//            }
+//
+//        }
+//    }
+//    [self setupSelectionIndicatorView];
     [self setupButtonStyleForButton:selectedButton];
 
     if (self.previousSelectedIndex != NSNotFound) {
@@ -368,10 +368,12 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
 
 - (void)onScrollingForOffsetFactor:(CGFloat)factor {
     if (self.selectionIndicatorView != nil) {
-        CGFloat offset = self.itemSize.width - CGRectGetWidth(self.selectionIndicatorView.bounds);
-
+        CGFloat offset = 5;
+        UIButton *selectedButton = [self.items[_selectedIndex] button];
+        
         CGRect frame = self.selectionIndicatorView.frame;
-        frame.origin.x = (CGRectGetWidth(self.selectionIndicatorView.bounds) + offset) * factor + offset / 2;
+        
+        frame.origin.x = (factor - self.selectedIndex) * (selectedButton.bounds.size.width - 10)  + selectedButton.frame.origin.x + 5;
         self.selectionIndicatorView.frame = frame;
     }
 }
@@ -409,18 +411,22 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
     if (self.selectionIndicatorView == nil) {
         return;
     }
-    CGFloat offset = self.itemSize.width - self.indicatorWidth;
-    self.selectionIndicatorView.frame = CGRectMake(self.itemSize.width * self.selectedIndex + offset / 2,
-            CGRectGetHeight(self.bounds) - CGRectGetHeight(self.selectionIndicatorView.bounds),
-            self.indicatorWidth, self.selectedIndicatorHeight);
+    UIButton * selectButton = [self.items[_selectedIndex] button];
+    
+//    CGFloat offset = 5;
+    self.selectionIndicatorView.frame = CGRectMake(selectButton.frame.origin.x + 5,CGRectGetHeight(self.bounds) - CGRectGetHeight(self.selectionIndicatorView.bounds),selectButton.bounds.size.width - 10, self.selectedIndicatorHeight);
+    [UIView animateWithDuration:0.35 animations:^{
+        self.selectionIndicatorView.bounds = CGRectMake(0, 0, selectButton.bounds.size.width - 10, self.selectedIndicatorHeight);
+    }];
+
     self.selectionIndicatorView.backgroundColor = self.selectedIndicatorColor;
+
 }
 
 - (IBAction)onButtonClicked:(UIButton *)button {
     if (button.selected) {
         return;
     }
-
     XMTabPageItem *previousItem = self.items[self.selectedIndex];
     previousItem.button.selected = NO;
 
