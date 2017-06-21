@@ -37,22 +37,30 @@
     }
     return self;
 }
--(void)viewDidLoad
+//-(void)viewDidLoad
+//{
+//    [super viewDidLoad];
+//    if ([[self.attributes objectForKey:@"pageItems"] length]) {
+//
+//
+//    }
+//}
+-(void)updateAttributes:(NSDictionary *)attributes
 {
-    [super viewDidLoad];
-    [self handleTabPageViewController];
+    [self initTabPage:attributes];
 }
-
 #pragma mark - private method
 
 -(void)initTabPage:(NSDictionary *)attributes
 {
-    NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
-    self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
-    if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
-        self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
+    if ([[attributes objectForKey:@"pageItems"] length]) {
+        NSArray * itemArray = [NSJSONSerialization JSONObjectWithData:[[attributes objectForKey:@"pageItems"] dataUsingEncoding:NSUTF8StringEncoding] options:0 error:nil];
+        self.pageBarItems = [XMTabPageBarItemModel itemsWithArray:itemArray];
+        if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
+            self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
+        }
+        [self handleTabPageViewController];
     }
-
 }
 /**
  操作pageViewController
@@ -187,7 +195,7 @@
         [self.weexInstance.viewController.view addSubview:_tabPageViewController.view];
         
         [_tabPageViewController didMoveToParentViewController:self];
-        
+        _tabPageViewController.tabPageBar.fittingIndicatorViewWidthToTitle = YES;
         [_tabPageViewController.view mas_makeConstraints:^(MASConstraintMaker *make) {
             make.size.equalTo(self.weexInstance.viewController.view);
             make.center.equalTo(self.weexInstance.viewController.view);

@@ -379,7 +379,6 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
 #pragma mark - private methods
 
 - (void)setupButtonStyleForButton:(UIButton *)button {
-    
     if (self.handleButtonUI) {
         [button setTitleColor:self.titleColor forState:UIControlStateNormal];
         [button setTitleColor:self.selectedTitleColor forState:UIControlStateHighlighted];
