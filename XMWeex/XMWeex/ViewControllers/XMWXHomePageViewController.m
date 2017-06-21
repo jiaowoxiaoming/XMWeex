@@ -99,7 +99,7 @@
 }
 - (IBAction)appFrame:(UIButton *)sender {
 #if TARGET_IPHONE_SIMULATOR//模拟器
-    NSString * url = @"";
+    NSString * url = @"http://192.167.0.60:8085/dist/Components/Frame/AppFrame.js";
     WXSDKInstance * instance = [(UIResponder *)[UIApplication sharedApplication].delegate valueForKey:@"instance"];
     [instance destroyInstance];
     [(UIResponder *)[UIApplication sharedApplication].delegate setValue:nil forKey:@"instance"];

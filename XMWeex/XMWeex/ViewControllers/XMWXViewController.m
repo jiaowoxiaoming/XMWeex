@@ -177,7 +177,7 @@
 }
 -(void)dealloc
 {
-    [self.instance destroyInstance];
+    [_instance destroyInstance];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

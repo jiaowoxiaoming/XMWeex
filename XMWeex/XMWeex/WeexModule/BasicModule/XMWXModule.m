@@ -26,12 +26,27 @@ WX_EXPORT_METHOD(@selector(openURL:options:completionHandler:))
     }
     XMWXViewController * controller = [[XMWXViewController alloc] init];
     controller.renderURL = [NSURL URLWithString:newURL];
-    if ([options objectForKey:@"navigtionBarInfo"]) {
-        controller.renderInfo = [XMWXNavigationItem infoWithDict:[options objectForKey:@"navigtionBarInfo"]];
+    if ([options objectForKey:@"navigationBarInfo"]) {
+        controller.renderInfo = [XMWXNavigationItem infoWithDict:[options objectForKey:@"navigationBarInfo"]];
+    }
+    if ([[options objectForKey:@"present"] boolValue]) {
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:controller];
+        
+        [self.weexInstance.viewController presentViewController:nav animated:[[options objectForKey:@"animated"] boolValue] completion:^{
+            if (completion) {
+                completion(@{@"result":@"success"});
+            }
+        }];
+    }else
+    {
+        [self.weexInstance.viewController showViewController:controller sender:nil];
+        if (completion) {
+            completion(@{@"result":@"success"});
+        }
+        
     }
 
-    [self.weexInstance.viewController showViewController:controller sender:nil];
-    completion(@{@"result":@"success"});
+    
 }
 WX_EXPORT_METHOD(@selector(creatNavigationBarUI:))
 -(void)creatNavigationBarUI:(NSDictionary *)renderInfo
