@@ -91,20 +91,28 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         //设置APP
         UIApplication * application = [UIApplication sharedApplication];
-        
-        UITabBarController * tabarViewController = [[UITabBarController alloc] init];
+        UITabBarController * tabarViewController = nil;
+        if ([application.keyWindow.rootViewController isKindOfClass:[UITabBarController class]]) {
+            tabarViewController = application.keyWindow.rootViewController;
+        }else
+        {
+            tabarViewController = [[UITabBarController alloc] init];
+            self.weexInstance.viewController = tabarViewController;
+            UIWindow * window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+            [((UIResponder *)application.delegate) setValue:window forKey:@"window"];
+
+            window.rootViewController = tabarViewController;
+
+            window.backgroundColor = [UIColor whiteColor];
+            UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDEBUGUI)];
+            tap.numberOfTapsRequired = 2;
+            tap.numberOfTouchesRequired = 3;
+            [tabarViewController.view addGestureRecognizer:tap];
+            [window makeKeyAndVisible];
+        }
+
         //    tabarViewController.view.alpha = 0;
-        UIWindow * window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-        [((UIResponder *)application.delegate) setValue:window forKey:@"window"];
-        
-        window.rootViewController = tabarViewController;
-        
-        window.backgroundColor = [UIColor whiteColor];
-        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showDEBUGUI)];
-        tap.numberOfTapsRequired = 2;
-        tap.numberOfTouchesRequired = 3;
-        [tabarViewController.view addGestureRecognizer:tap];
-        [window makeKeyAndVisible];
+
         
         [self handleTabbarViewControllers:attributes tabarController:tabarViewController];
     });
@@ -134,7 +142,9 @@
     NSString * tabItemsDictJsonString = [WXConvert NSString:attributes[XMWXAPPFrameComponteTabbarItemsKey]];
     
     NSArray * tabItemsInfoArray = [NSJSONSerialization JSONObjectWithData:[tabItemsDictJsonString dataUsingEncoding:NSUTF8StringEncoding] options:(NSJSONReadingAllowFragments) error:nil];
-    
+    if (tabItemsInfoArray.count == 0) {
+        return nil;
+    }
     NSMutableArray * tabarItems = [NSMutableArray array];
     
     [tabItemsInfoArray enumerateObjectsUsingBlock:^(NSDictionary *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -197,6 +207,9 @@
 -(void)handleTabbarViewControllers:(NSDictionary *)attributes tabarController:(UITabBarController __kindof * )tabarController
 {
     NSMutableArray <UITabBarItem *> * tabbarItems = [self handleTabbarItems:attributes tabarController:tabarController];
+    if (!tabbarItems) {
+        return;
+    }
     NSArray * viewControllerItems = [NSJSONSerialization JSONObjectWithData:[[WXConvert NSString:[attributes objectForKey:XMWXAPPFrameComponteViewControllerItemsKey]] dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingAllowFragments error:nil];
     
     NSMutableArray * viewControllers = [NSMutableArray array];
@@ -249,14 +262,7 @@
  */
 -(void)updateAttributes:(NSDictionary *)attributes
 {
-    if ([UIApplication sharedApplication].keyWindow.rootViewController) {
-        [self handleTabbarItems:attributes tabarController:(UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController];
-        [self handleTabbarViewControllers:attributes tabarController:(UITabBarController *)[UIApplication sharedApplication].keyWindow.rootViewController];
-    }else
-    {
-        [self firstInitAPPFrameWithAttributes:attributes];
-    }
-    
+    [self firstInitAPPFrameWithAttributes:attributes];
 }
 #pragma mark - getter
 

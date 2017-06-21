@@ -37,24 +37,9 @@
     }
     return self;
 }
-//-(void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//    if ([[self.attributes objectForKey:@"pageItems"] length]) {
-//
-//
-//    }
-//}
+
 -(void)updateAttributes:(NSDictionary *)attributes
 {
-<<<<<<< HEAD
-=======
-    [super viewDidLoad];
-    
-}
--(void)updateAttributes:(NSDictionary *)attributes
-{
->>>>>>> 0f544d02a38e8f47ed883b89cedba4c5e779d771
     [self initTabPage:attributes];
 }
 #pragma mark - private method
@@ -67,12 +52,10 @@
         if ([attributes objectForKey:@"selectIndex"] && [[attributes objectForKey:@"selectIndex"] respondsToSelector:@selector(integerValue)]) {
             self.selectIndex = [[attributes objectForKey:@"selectIndex"] integerValue];
         }
-<<<<<<< HEAD
-=======
         [self.tabPageViewController.view removeFromSuperview];
         [self.tabPageViewController removeFromParentViewController];
         self.tabPageViewController = nil;
->>>>>>> 0f544d02a38e8f47ed883b89cedba4c5e779d771
+
         [self handleTabPageViewController];
     }
 }
