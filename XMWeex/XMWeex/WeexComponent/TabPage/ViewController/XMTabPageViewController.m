@@ -670,6 +670,7 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
             weakSelf.selectedIndex = selectedIndex;
         }];
         UIScrollView * scrollView = [[UIScrollView alloc] initWithFrame:self.tabPageBar.frame];
+        scrollView.bounces = NO;
         scrollView.backgroundColor = [UIColor whiteColor];
         [scrollView addSubview:self.tabPageBar];
         self.tabPageBar.frame = scrollView.bounds;
