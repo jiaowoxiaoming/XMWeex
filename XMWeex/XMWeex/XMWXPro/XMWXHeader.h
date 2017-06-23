@@ -16,14 +16,14 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-function"
 
-static void configXMWeex()
-{
-    [WXSDKEngine initSDKEnvironment];
-    [WXSDKEngine registerModule:@"XMWXModule" withClass:NSClassFromString(@"XMWXModule")];
-    [WXSDKEngine registerHandler:[NSClassFromString(@"XMWXWebImage") new] withProtocol:@protocol(WXImgLoaderProtocol)];
-    //通过配置这个Component参数来配置程序框架HTML标签名
-    [WXSDKEngine registerComponent:@"AppFrame" withClass:NSClassFromString(@"XMWXAPPFrameComponte")];
-}
+//static void configXMWeex()
+//{
+//    [WXSDKEngine initSDKEnvironment];
+//    [WXSDKEngine registerModule:@"XMWXModule" withClass:NSClassFromString(@"XMWXModule")];
+//    [WXSDKEngine registerHandler:[NSClassFromString(@"XMWXWebImage") new] withProtocol:@protocol(WXImgLoaderProtocol)];
+//    //通过配置这个Component参数来配置程序框架HTML标签名
+//    [WXSDKEngine registerComponent:@"AppFrame" withClass:NSClassFromString(@"XMWXAPPFrameComponte")];
+//}
 
 static NSString * host()
 {

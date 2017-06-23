@@ -26,7 +26,12 @@
 @end
 
 @implementation XMWXTabPageComponent
-
+-(void)dealloc
+{
+    [_tabPageViewController.view removeFromSuperview];
+    [_tabPageViewController removeFromParentViewController];
+    _tabPageViewController = nil;
+}
 #pragma mark - public method
 -(instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance
 {
