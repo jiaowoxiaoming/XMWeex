@@ -108,26 +108,7 @@
 
 @end
 
-@implementation UINavigationController (BackButton)
 
-+(void)load
-{
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        swizzling_exchangeMethod([UINavigationController class], @selector(pushViewController:animated:), @selector(xm_pushViewController:animated:));
-    });
-}
--(void)xm_pushViewController:(UIViewController *)viewController animated:(BOOL)animated
-{
-    if (self.viewControllers.count > 0) {
-        viewController.hidesBottomBarWhenPushed = YES;
-        
-    }
-    
-    [self xm_pushViewController:viewController animated:animated];
-
-}
-@end
 
 
 @interface XMWXViewController ()
@@ -221,7 +202,7 @@
     UIViewController * visibleViewController = [[self class] visibleViewController];
     if (visibleViewController.navigationItem.leftBarButtonItems.count > 0) {
         [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:[UIImage imageNamed:@"back_white"] forState:(UIControlStateNormal)];
-        [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:1].customView sizeToFit];
+        [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView sizeToFit];
     }
     
 }
@@ -233,7 +214,7 @@
     //    }
     if (visibleViewController.navigationItem.leftBarButtonItems.count > 0) {
         [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:[UIImage imageNamed:@"back"] forState:(UIControlStateNormal)];
-        [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:1].customView sizeToFit];
+        [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView sizeToFit];
     }
     
 }
@@ -470,6 +451,7 @@
     typeof(self) __weak weakSelf = self;
     if (WXItem.itemURL.length > 0) {
         WXSDKInstance * instance = [[WXSDKInstance alloc] init];
+        instance.viewController = weakSelf;
         if ([WXItem.itemURL hasPrefix:@"http"]) {
             [instance renderWithURL:[self URLWithString:[NSURL URLWithString:WXItem.itemURL].absoluteString]];
         }else
