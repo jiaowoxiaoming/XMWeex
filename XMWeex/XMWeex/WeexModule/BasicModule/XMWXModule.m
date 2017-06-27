@@ -13,7 +13,39 @@
 
 @implementation XMWXModule
 @synthesize weexInstance = _weexInstance;
+WX_EXPORT_METHOD(@selector(push:completionHandler:))
+-(void)push:(NSDictionary<NSString *,id> *)options completionHandler:(WXCallback)completion
+{
+    NSString * url = [options objectForKey:@"url"];
+    NSString *newURL = url;
+    if ([url hasPrefix:@"//"]) {
+        newURL = [NSString stringWithFormat:@"http:%@", url];
+    } else if (![url hasPrefix:@"http"]) {
+        newURL = [NSURL URLWithString:url relativeToURL:self.weexInstance.scriptURL].absoluteString;
+    }
+    XMWXViewController * controller = [[XMWXViewController alloc] init];
+    controller.renderURL = [NSURL URLWithString:newURL];
+    if ([options objectForKey:@"navigationBarInfo"]) {
+        controller.renderInfo = [XMWXNavigationItem infoWithDict:[options objectForKey:@"navigationBarInfo"]];
+    }
+    if ([[options objectForKey:@"present"] boolValue]) {
+        UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:controller];
+        
+        [self.weexInstance.viewController presentViewController:nav animated:[[options objectForKey:@"animated"] boolValue] completion:^{
+            if (completion) {
+                completion(@{@"result":@"success"});
+            }
+        }];
+    }else
+    {
+        [self.weexInstance.viewController showViewController:controller sender:nil];
+        if (completion) {
+            completion(@{@"result":@"success"});
+        }
+        
+    }
 
+}
 WX_EXPORT_METHOD(@selector(openURL:options:completionHandler:))
 
 -(void)openURL:(NSString *)url options:(NSDictionary<NSString *,id> *)options completionHandler:(WXCallback)completion
@@ -48,6 +80,15 @@ WX_EXPORT_METHOD(@selector(openURL:options:completionHandler:))
 
     
 }
+
+WX_EXPORT_METHOD(@selector(backOrClose:))
+-(void)backOrClose:(WXCallback)callBack
+{
+    if ([self.weexInstance.viewController.navigationController respondsToSelector:@selector(back)]) {
+        [self.weexInstance.viewController.navigationController performSelector:@selector(back)];
+    }
+}
+
 WX_EXPORT_METHOD(@selector(creatNavigationBarUI:))
 -(void)creatNavigationBarUI:(NSDictionary *)renderInfo
 {

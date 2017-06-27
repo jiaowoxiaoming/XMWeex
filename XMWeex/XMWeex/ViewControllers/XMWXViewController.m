@@ -201,7 +201,7 @@
 {
     UIViewController * visibleViewController = [[self class] visibleViewController];
     if (visibleViewController.navigationItem.leftBarButtonItems.count > 0) {
-        [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:[UIImage imageNamed:@"back_white"] forState:(UIControlStateNormal)];
+        [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:xmwx_imageForSetting(@"back_white") forState:(UIControlStateNormal)];
         [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView sizeToFit];
     }
     
@@ -213,7 +213,7 @@
     //        return;
     //    }
     if (visibleViewController.navigationItem.leftBarButtonItems.count > 0) {
-        [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:[UIImage imageNamed:@"back"] forState:(UIControlStateNormal)];
+        [((UIButton *)[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView) setImage:xmwx_imageForSetting(@"back") forState:(UIControlStateNormal)];
         [[visibleViewController.navigationItem.leftBarButtonItems objectAtIndex:0].customView sizeToFit];
     }
     
