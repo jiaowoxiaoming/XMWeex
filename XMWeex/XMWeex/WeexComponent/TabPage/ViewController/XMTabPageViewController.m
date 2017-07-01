@@ -342,18 +342,7 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
         [self drawRect:self.frame];
         selectedButton = [self.items[_selectedIndex] button];
     }
-//    if ([self.superview isKindOfClass:[UIScrollView class]]) {
-//        UIScrollView * scr = (UIScrollView *)self.superview;
-//        if (CGRectGetMaxX(selectedButton.frame) < scr.contentSize.width - scr.frame.size.width) {
-//            [scr setContentOffset:selectedButton.frame.origin animated:YES];
-//        }else
-//        {
-//            if (scr.contentSize.width > scr.frame.size.width) {
-//                [scr setContentOffset:CGPointMake(scr.contentSize.width - scr.frame.size.width, 0) animated:YES];
-//            }
-//
-//        }
-//    }
+
 //    [self setupSelectionIndicatorView];
     [self setupButtonStyleForButton:selectedButton];
 
@@ -673,6 +662,7 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
         scrollView.bounces = NO;
         scrollView.backgroundColor = [UIColor whiteColor];
         [scrollView addSubview:self.tabPageBar];
+        
         self.tabPageBar.frame = scrollView.bounds;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.showsHorizontalScrollIndicator = NO;
@@ -804,6 +794,16 @@ CGSize XMtabpage_getTextSize(UIFont *font, NSString *text, CGFloat maxWidth) {
 
         if (self.showTabPageBar) {
             self.tabPageBar.selectedIndex = newIndex;
+            UIButton *selectedButton = [self.tabPageBar.items[newIndex] button];
+            if ([self.tabPageBar.superview isKindOfClass:[UIScrollView class]]) {
+                UIScrollView * scr = (UIScrollView *)self.tabPageBar.superview;
+                if (CGRectGetMaxX(selectedButton.frame) > scr.frame.size.width) {
+                    [scr setContentOffset:CGPointMake(CGRectGetMaxX(selectedButton.frame) - scr.frame.size.width, 0) animated:YES];
+                }else if (newIndex == 0 || newIndex == 1)
+                {
+                    [scr setContentOffset:CGPointMake(0, 0) animated:YES];
+                }
+            }
         }
 
         if (selectedItem.contentViewController.view.superview == nil) {

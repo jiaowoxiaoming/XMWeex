@@ -84,6 +84,30 @@ static UIImage * xmwx_fetchImage(NSString * imageNameOrPath)
     }
     return image;
 }
+#define FONTRegular(font,x)     font = [UIFont systemFontOfSize:x weight:UIFontWeightRegular];
+
+#define FONTLight(font,x)       font = [UIFont systemFontOfSize:x weight:UIFontWeightLight];
+
+#define FONTMedium(font,x)      font = [UIFont systemFontOfSize:x weight:UIFontWeightMedium];
+static UIFont *fontByString(NSString *fontString)
+{
+    NSArray * a = [fontString componentsSeparatedByString:@"_"];
+    UIFont * font = nil;
+    if (a.count == 2) {
+        
+        if ([a.lastObject isEqualToString:@"UIFontWeightRegular"]) {
+            FONTRegular(font, [a.firstObject floatValue]);
+        }else if ([a.lastObject isEqualToString:@"UIFontWeightMedium"])
+        {
+            FONTMedium(font, [a.firstObject floatValue]);
+        }else if ([a.lastObject isEqualToString:@"UIFontWeightThin"])
+        {
+            FONTLight(font, [a.firstObject floatValue]);
+        }
+    }
+    
+    return font;
+}
 
 #define CommonImageDirectoryName    @"image"
 static UIImage * xmwx_imageForSetting(NSString * imageName)

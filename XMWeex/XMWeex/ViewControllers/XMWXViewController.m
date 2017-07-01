@@ -188,6 +188,7 @@
 }
 -(void)clearNavigationBar
 {
+    
     [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleLightContent;
     [self whiteBackItem];
     UIViewController * visibleViewController = [[self class] visibleViewController];
@@ -195,7 +196,8 @@
     nav.navigationBar.hidden = NO;
     [nav.navigationBar setBackgroundImage:[[UIImage alloc]init] forBarMetrics:UIBarMetricsDefault];
     [nav.navigationBar setShadowImage:[[UIImage alloc] init]];
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16 weight:UIFontWeightRegular],NSForegroundColorAttributeName:colorWithHexString(self.renderInfo.clearTitleColor, 1.f),}];
+    UIFont * font = self.renderInfo.titleFont.length > 0 ? fontByString(self.renderInfo.titleFont) : [UIFont systemFontOfSize:16];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16 weight:UIFontWeightRegular],NSForegroundColorAttributeName:colorWithHexString(self.renderInfo.clearTitleColor, 1.f),NSFontAttributeName:font}];
 }
 -(void)whiteBackItem
 {
@@ -228,8 +230,8 @@
     UINavigationController * nav = visibleViewController.navigationController;
     [nav.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
     [nav.navigationBar setShadowImage:nil];
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16 weight:UIFontWeightRegular],NSForegroundColorAttributeName:colorWithHexString(self.renderInfo.blurTitleColor, 1.f),}];
+    UIFont * font = self.renderInfo.titleFont.length > 0 ? fontByString(self.renderInfo.titleFont) : [UIFont systemFontOfSize:16];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16 weight:UIFontWeightRegular],NSForegroundColorAttributeName:colorWithHexString(self.renderInfo.blurTitleColor, 1.f),NSFontAttributeName:font}];
 }
 
 
@@ -407,6 +409,8 @@
         [self handleNavigationBarIsHidden];
         [self handleNavigationBarBackgroundColor];
         [self handleNavigationBarBackgroundImage];
+        
+        
     }
     
 }

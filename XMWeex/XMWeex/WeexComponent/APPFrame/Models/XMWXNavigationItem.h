@@ -13,6 +13,11 @@
 
 //@{@"title":@"xxxxx",@"leftInfo":@[@{@"aciton":@"refresh",@"itemURL":@"http://xxxx.js"}],@"rightInfo":@[@{@"aciton":@"refresh",@"itemURL":@"http://xxxx.js"}],@"clearNavigationBar"}
 @interface XMWXNavigationItem : NSObject<XMWXNavigationBarProtocol>
+
+@property (nonatomic,copy) NSString * titleFont;
+
+@property (nonatomic,copy) NSString * statusBarStyle;
+
 +(instancetype)infoWithDict:(NSDictionary *)dict;
 -(instancetype)initWithDict:(NSDictionary *)dict;
 @end

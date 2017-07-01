@@ -111,7 +111,6 @@
     XMWXScanViewController * scanVC = [[XMWXScanViewController alloc] init];
     [scanVC setValue:@1 forKey:@"debugType"];
     [self showViewController:scanVC sender:sender];
-    
 #endif
 }
 

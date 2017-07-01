@@ -36,6 +36,10 @@ static NSString * const itemURLKey = @"itemURL";
 @property (nonatomic,copy) NSString * blurTitleColor;
 
 @property (nonatomic,strong) NSNumber * scrollViewTopDel;
+
+@property (nonatomic,copy) NSString * titleFont;
+
+@property (nonatomic,copy) NSString * statusBarStyle;
 /**
  leftItem的渲染信息
  */
